@@ -69,3 +69,7 @@ PROJE GELİŞTİRME FİKİRLERİ
 İlerleyen süreçlerde projeyi iki mesafe arasında en kısa yol olarak güncelleme işlemini gerçekleştirebilir. 
 İstanbul genelindeki tüm metro istasyonları hesaba katılabilir. 
 Metro istasyonunda sınırlı kalmayıp, marmara hattı, hızlı tren gibi farklı toplu taşıma araçlarına uyarlanabilir.
+
+
+HavinGürkan_MetroSimülation.py ve HavinGürkan_MetroSimülation_1.py arasındaki tek fark varış ve başlangıç noktalarının farklı olmasıdır.
+HavinGürkan_MetroSimülation_2.py ise görselleştirilmiş versiyonudur.
