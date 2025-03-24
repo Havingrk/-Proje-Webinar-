@@ -3,6 +3,7 @@ import heapq
 from typing import Dict, List, Set, Tuple, Optional
 import networkx as nx
 import matplotlib.pyplot as plt
+
 class Istasyon:
     def __init__(self, idx: str, ad: str, hat: str):
         self.idx = idx
@@ -117,7 +118,7 @@ def bfs_gorsellestir(metro, baslangic_id, hedef_id):
         node_colors = ['lightblue'] * len(G.nodes())
         edge_colors = ['gray'] * len(G.edges())
         edge_widths = [2] * len(G.edges())
-
+        # düğümlerin ve kenarların renklerini ve kalınlıklarının ayarlanması.
         for i, node in enumerate(G.nodes()):
             if node in rota_ids:
                 node_colors[i] = 'red'
@@ -126,9 +127,8 @@ def bfs_gorsellestir(metro, baslangic_id, hedef_id):
                 edge_colors[i] = 'red'
                 edge_widths[i] = 4
 
-        nx.draw(G, positions, with_labels=True, node_color=node_colors, edge_color=edge_colors, width=edge_widths, node_size=700)
-        plt.title(f"{baslangic_id} -> {hedef_id} En Az Aktarmalı Rota (BFS)")
-        plt.show()
+        nx.draw(G, positions, with_labels=True, node_color=node_colors, edge_color=edge_colors, width=edge_widths, node_size=700)#fonksiyonu, grafı ve rotayı belirtilen renkler ve kalınlıklarla çizer.
+        plt.show()#grafiği ekranda görüntüler.
     else:
         print(f"{baslangic_id} ve {hedef_id} arasında rota bulunamadı.")
 
