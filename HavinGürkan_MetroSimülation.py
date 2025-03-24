@@ -32,16 +32,16 @@ class MetroAgi:
         istasyon2.komsu_ekle(istasyon1, sure)
 
     def en_az_aktarma_bul(self, baslangic_id: str, hedef_id: str) -> Optional[List[Istasyon]]:
-       if baslangic_id not in self.istasyonlar or hedef_id not in self.istasyonlar:
+       if baslangic_id not in self.istasyonlar or hedef_id not in self.istasyonlar:#başlangıç veya hedef istasyonların ağda bulunup bulunmadığını kontrol eder.
            return None
-
+           #eğer istasyonlardan biri bulunamazsa, None döndürür.
        baslangic = self.istasyonlar[baslangic_id]
        hedef = self.istasyonlar[hedef_id]
 
-       queue = deque([(baslangic, [baslangic])])
-       ziyaret_edildi = {baslangic}
+       queue = deque([(baslangic, [baslangic])])#Başlangıç istasyonu ve rotayı tutar.
+       ziyaret_edildi = {baslangic}#Ziyaret edilen istasyonları tutan bir küme.
 
-       while queue:
+       while queue:#Kuyruk boşalana kadar döngü devam eder.
            mevcut, yol = queue.popleft()
            if mevcut==hedef:
                return yol
@@ -63,13 +63,12 @@ class MetroAgi:
 
         def sezgisel(istasyon1: Istasyon,istasyon2: Istasyon) -> int:
             return 0
-
-        pq=[(0,0,id(baslangic),baslangic,[baslangic],0)]
+            #hedef istasyona olan tahmini uzaklığı döndürmelidir.
+        pq=[(0,0,id(baslangic),baslangic,[baslangic],0)]#f=g+h
         ziyaret_edildi = set()
 
         while pq:
-            f, g,istasyon_id, mevcut_istasyon, yol, toplam_sure= heapq.heappop(pq)
-
+            f, g,istasyon_id, mevcut_istasyon, yol, toplam_sure= heapq.heappop(pq)#heapq.heappop(pq):En düşük f değerine sahip elemanı kuyruktan çıkarır.
             if mevcut_istasyon== hedef:
                 return yol,toplam_sure
 
